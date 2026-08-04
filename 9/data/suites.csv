@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","30086","Verify search functionality on Playwright website","webkit","2026-08-04","broken","2026-08-04","","example.spec.ts","",""
+"","30089","Verify search functionality on Playwright website","firefox","2026-08-04","broken","2026-08-04","","example.spec.ts","",""
+"","30050","Verify search functionality on Playwright website","chromium","2026-08-04","broken","2026-08-04","","example.spec.ts","",""
