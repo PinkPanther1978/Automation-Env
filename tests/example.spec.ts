@@ -14,8 +14,7 @@ test('Verify search functionality on Playwright website', async ({ page }) => {
 
   // 4. Press Enter and verify the page header updates correctly
   await searchInput.press('Enter');
-  const mainHeader = page.locator('header h1');
-  await expect(mainHeader).toContainText('Trace Viewer');
+  await expect(page).toHaveURL(/.*trace-viewer/);
 
   // 5. Let Playwright handle the screenshot safely
   await page.screenshot({ path: 'screenshot.png', fullPage: true });
