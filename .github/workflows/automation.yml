@@ -3,7 +3,10 @@ name: End-to-End Automation Environment
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch: # Keeps the manual "Run workflow" button active
+  schedule:
+    # This schedules the workflow to run every single night at 2:00 AM UTC
+    - cron: '0 2 * * *'
 
 permissions:
   id-token: write # Required for requesting the AWS JWT OIDC token

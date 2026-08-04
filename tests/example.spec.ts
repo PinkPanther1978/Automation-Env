@@ -1,18 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('Verify search functionality on Playwright website', async ({ page }) => {
+  // 1. Navigate to the website
+  await page.goto('https://playwright.dev');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  // 2. Click the Search button to open the modal
+  const searchButton = page.getByLabel('Search');
+  await searchButton.click();
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  // 3. Type "Trace Viewer" into the search input field
+  const searchInput = page.getByPlaceholder('Search docs');
+  await searchInput.fill('Trace Viewer');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  // 4. Press Enter and verify the page header updates correctly
+  await searchInput.press('Enter');
+  const mainHeader = page.locator('header h1');
+  await expect(mainHeader).toContainText('Trace Viewer');
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  // 5. Automatically capture a screenshot and save it
+  await page.screenshot({ path: 'allure-results/success-screenshot.png', fullPage: true });
 });
