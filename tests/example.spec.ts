@@ -17,6 +17,6 @@ test('Verify search functionality on Playwright website', async ({ page }) => {
   const mainHeader = page.locator('header h1');
   await expect(mainHeader).toContainText('Trace Viewer');
 
-  // 5. Automatically capture a screenshot and save it
-  await page.screenshot({ path: 'allure-results/success-screenshot.png', fullPage: true });
+  // 5. Let Playwright handle the screenshot safely
+  await page.screenshot({ path: 'screenshot.png', fullPage: true });
 });
