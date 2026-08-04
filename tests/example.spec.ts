@@ -12,7 +12,7 @@ test('Verify search functionality on Playwright website', async ({ page }) => {
   const searchInput = page.getByPlaceholder('Search docs');
   await searchInput.fill('Trace Viewer');
 
-  // 4. Press Enter and verify the page header updates correctly
+  // 4. Press Enter and verify the browser successfully navigated to the Trace Viewer page
   await searchInput.press('Enter');
   await expect(page).toHaveURL(/.*trace-viewer/);
 
